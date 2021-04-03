@@ -1,0 +1,14 @@
+{% extends 'aluno/base_aluno.html' %}  
+{% block content %} 
+
+	
+	<form method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+	
+		{{observacaoform.as_p}}
+
+		
+
+		<button class="submit">salvar</button>
+	</form>
+{% endblock %}

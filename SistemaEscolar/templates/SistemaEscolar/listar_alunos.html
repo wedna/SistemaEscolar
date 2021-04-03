@@ -1,0 +1,85 @@
+{% extends 'SistemaEscolar/base.html' %}
+
+{% block content %}
+	<div class="shadow-lg p-3 mb-5 bg-body rounded">
+
+
+		{% if user.is_authenticated %}
+			<h3>Olá {{user.username}}</h3>
+			<!--<a href="{% url 'logout_usuario' %}">Sair</a>!-->
+		{% else %}	
+			<p>Você precisa realizar o login</p>
+		{% endif %}
+
+		<table class="table">
+			<tr>
+				<th>Nome</th>			
+				<th>Matricula</th>
+				<th>Turma</th>
+				<th>Turno</th>
+				<th></th>
+				<th></th>
+				
+				
+			</tr> 
+	  		{% for aluno in alunos %}
+				<tr>
+					<td>
+						<a href="{% url 'detalhes_aluno' id=aluno.id %}">
+							{{aluno.nome}}<br>
+						</a>
+
+					</td>
+						
+					<td>
+						{% for matricula in matricula %}
+							{% if matricula.aluno_id == aluno.id%}		
+								{{matricula.matricula}}<br>
+							{%endif%}
+						{%endfor%}		
+
+					</td>	
+					<td>
+						{% for matricula in matricula %}
+							{% if matricula.aluno_id == aluno.id%}		
+								{{matricula.turma}}<br>
+							{%endif%}
+						{%endfor%}		
+
+					</td>	
+						<td>
+						{% for matricula in matricula %}
+							{% if matricula.aluno_id == aluno.id%}		
+								{{matricula.turno}} <br>
+							{%endif%}
+						{%endfor%}		
+ 
+					</td>	
+						<!--solicitar alteração de dados pessoais e de endereço-->
+					{% if user.is_authenticated %}
+						<td> 
+							<a class="btn btn-info"href="{% url 'editar_aluno' id=aluno.id %}">Alterar Dados</a>
+						</td>
+
+						<td>
+							<a class="btn btn-info"href="{% url 'editar_endereco' id=aluno.id %}">Alterar Endereco</a>
+						</td>
+					
+						<!--deletar-->
+						<td>
+							
+							<a class="btn btn-danger" href="{% url 'deletar_aluno' id=aluno.id %}">Deletar</a>
+						</td>
+					{% endif %}
+						
+				</tr>
+				
+			{% endfor %}
+		</table>
+	</div>		
+{% endblock %}
+
+ 
+
+
+	

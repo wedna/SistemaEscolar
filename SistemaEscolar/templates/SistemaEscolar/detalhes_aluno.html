@@ -1,0 +1,26 @@
+{% extends 'SistemaEscolar/base.html' %}
+{% block content %}
+
+	<table style="width:100%">
+	  <tr>
+	    <th>Nome</th>
+	    <th>Matricula</th>
+	    <th>CPF</th>
+	    <th>Endereço</th>
+	    <th>Turma</th>
+	    <th>Turno</th>
+	  </tr>
+	  {% for matricula in matricula %}
+		  <tr>
+		    <td>{{aluno.nome}}<br></td>
+		    <td>{{matricula.matricula}}<br></td>
+		    <td>{{aluno.cpf}}<br></td>
+		    <td>{{endereco.rua}}<br></td>
+		    <td>{{matricula.turma}}<br></td>
+		    <td>{{matricula.turno}}<br>	</td>
+		  </tr>
+		{% endfor %}  
+	</table> 
+{% endblock %}
+
+ 

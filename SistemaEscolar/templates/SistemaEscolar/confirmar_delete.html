@@ -1,0 +1,9 @@
+Deseja excluir {{aluno.nome}}?
+
+<form method="POST">
+	{% csrf_token %}
+	<button type="submit">
+		deletar
+	</button>
+	
+</form>

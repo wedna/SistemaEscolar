@@ -1,0 +1,44 @@
+{% extends 'SistemaEscolar/base.html' %}  
+{% block content %} 
+   <table class="table">
+    <form>
+      <div class="row"> 
+        <div class="col-4">       
+          <label for="inputCep">Cep</label>
+          {{ enderecoform.cep }}
+        </div>
+              
+        <div class="col-6"> 
+          <label for="inputCity">Cidade</label>
+          {{ enderecoform.cidade }}
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputEstado">UF</label>
+          {{ enderecoform.uf }}
+        </div>
+      </div>
+        
+
+      <div class="row">
+        <div class="col-4">  
+          <label for="inputEmail">Bairro</label>
+          {{ enderecoform.bairro }}
+        </div>
+      
+      
+        <div class="col-6">
+          <label for="inputRua">Rua</label>
+          {{ enderecoform.rua }}
+        </div>
+        <div class="col-2">
+          <label for="inputNumero">Nº</label>
+          {{ enderecoform.numero }}
+        </div>  
+      </div>
+        <button type="submit" class="btn btn-primary">Entrar</button> 
+    </form>
+  </table>  
+
+ 
+
+{% endblock %}

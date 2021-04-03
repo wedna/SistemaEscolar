@@ -1,0 +1,15 @@
+{% extends 'SistemaEscolar/base.html' %}
+
+{% block content %}
+<div class="shadow-lg p-3 mb-5 bg-body rounded">
+	<table class="table">
+			<!--o funcionario depois de fazer as alterções solicitadas, mudará de pendende para finalizado, salva as alterações.-->
+		<form method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+			{{observacaoform.as_p}}
+			
+			<button class="submit">salvar</button>
+		</form>
+	</table>			
+				
+{% endblock %}

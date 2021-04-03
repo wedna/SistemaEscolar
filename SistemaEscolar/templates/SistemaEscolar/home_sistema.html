@@ -1,0 +1,43 @@
+{% extends 'SistemaEscolar/base.html' %}  
+{% block content %}
+	
+		<div class="row">
+	        <div class="col-3"> 
+	        </div>
+		    
+			<div class="col-4"> 
+				<h3>Olá {{user.username}}</h3>
+
+		    </div> 
+		    <div class="col-5"> 
+		    	{% if user.is_authenticated %}
+			    	<table class="table">
+			    		<thead>
+				    		<tr>
+				    			<th scope="col">Aluno</th>
+				    			<th scope="col">Observação</th>
+				    			<th scope="col">Data</th>
+				    			<th scope="col">Situação</th>
+				    		</tr>
+				    	</thead>
+				    	<tbody>
+							<th scope="row"></th> <!--as observações dos alunos ficará disponível na tela de inicio qnd o funcionário fizer login-->		
+								{% for observacao in observacao %}
+									<tr> 
+										<td>{{observacao.aluno}}</td>
+										<td>{{observacao.observacao}}</td>
+										<td>{{observacao.data}}</td>
+										<td>{{observacao.status}}</td>
+										<td><a class="btn btn-info"  href="{% url 'editar_observacao' id=observacao.id %}">Alterar status</a></td>
+									</tr>
+								{% endfor %}
+						</tbody>		
+
+					</table>
+				{% endif%}		
+		    </div>   	
+		</div>
+	      
+
+	
+{%  endblock %}

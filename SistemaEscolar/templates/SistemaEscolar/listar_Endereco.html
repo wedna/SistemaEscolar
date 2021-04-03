@@ -1,0 +1,10 @@
+{% extends 'SistemaEscolar/base.html' %}  
+{% block content %} 
+	<h3>Lista de endereços</h3>
+	{% for endereco in enderecos %}
+		{{endereco.nome}}<br>
+	{% endfor %}	
+
+	
+
+{% endblock %} 

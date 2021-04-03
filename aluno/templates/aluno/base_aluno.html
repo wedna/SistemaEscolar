@@ -1,0 +1,107 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.80.0">
+    <title>Escola</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sticky-footer-navbar/">
+    <!--Importando Script Jquery-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+   <!-- Bootstrap CSS -->
+    
+    <!-- Bootstrap core CSS -->
+    <link href="{% static '/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle; 
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style> 
+    
+  </head>
+<body class="d-flex flex-column h-100">
+    
+  <header>
+    <!-- Fixed navbar -->
+
+    <nav class="navbar navbar-expand-lg" style="background-image: linear-gradient(to right,DarkCyan, DarkSlateGray);">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}"> <p class="text-dark">Escola de Ciencia e Tecnologia Supra TEC</p>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        {% if user.is_authenticated %}
+          <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><p class="text-dark">Aluno</p></a>
+                
+                  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                    <li><a class="dropdown-item" href="{% url 'cadastro_aluno' %}">Realizar cadastro</a></li>
+                    <li><a class="dropdown-item" href="{% url 'solicitar_matricula' %}">Solicitar matricular</a></li>
+                    <li><a class="dropdown-item" href="{% url 'matricula' %}">Listar matricula</a></li>
+                    <li><a class="dropdown-item" href="{% url 'observacao' %}">alteracao</a></li>
+                  </ul>
+              </li>
+            </ul>
+          </div>
+        {% endif %}  
+
+            <ul class="nav justify-content-end">
+
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'novo_usuario'%}"><p class="text-dark">Cadastre-se</p></a>
+              </li>
+
+              <li class="nav-item">
+                {% if user.is_authenticated %}
+                  <a class= "nav-link active" aria-current="page" href="{% url 'logout' %}"><p class="text-dark">Sair</p></a>
+                {% else %}
+                  <a class= "nav-link active" aria-current="page" href="{% url 'login_usuario' %}"><p class="text-dark">Login</p></a>
+                {% endif %}
+              </li>
+            </ul>
+      </div>      
+    </nav>
+  
+
+            <!-- Begin page content -->
+            <main class="flex-shrink-0" style="min-height:60ch">
+              <div class="container">
+                  {% block content %}
+
+                  {% endblock %}
+              </div>
+            </main>
+
+          <footer class="footer mt-auto py-3 bg-light">
+            <div class="container">
+              <p>© Copyright 2021 GroupDev S.A. - Todos os direitos da Escola de Ciencia e Tecnologia Supra TEC</p>
+            </div>
+          </footer>
+
+              <script src="{% static '/js/bootstrap.bundle.min.js' %}"></script>
+      </div>
+    </nav>
+  </header>      
+</body>
+</html>

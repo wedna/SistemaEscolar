@@ -1,0 +1,16 @@
+{% extends 'SistemaEscolar/base.html' %}  
+{% block content %}  
+	<div class="shadow-lg p-3 mb-5 bg-body rounded">
+
+
+		<form method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+		
+			{{matriculaform.as_p}}
+			
+
+			<button class="submit">salvar</button>
+		</form>
+	</div>
+{% endblock %}
+

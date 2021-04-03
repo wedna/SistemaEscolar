@@ -1,0 +1,18 @@
+{% extends 'SistemaEscolar/base.html' %}  
+{% block content %}  
+
+
+	<form method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+	
+		{{form_usuario.username}}
+		{{form_usuario.username.errors}}
+		{{form_usuario.password1}}
+		{{form_usuario.password1.errors}}
+		{{form_usuario.password2}}
+		{{form_usuario.password2.errors}}
+
+		<button class="submit">salvar</button>
+	</form>
+
+{% endblock %}

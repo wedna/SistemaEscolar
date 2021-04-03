@@ -1,0 +1,40 @@
+{% extends 'aluno/base_aluno.html' %}
+
+{% block content %}
+	<div class="shadow-lg p-3 mb-5 bg-body rounded ">
+		{% if possui %}
+			<h3>Lista de matriculas</h3>
+			<table style="width:100%">
+				<tr>
+					<th>Matricula</th>			
+					<th>Aluno</th>
+					<th>Turma</th>
+					<th>Turno</th>
+					<th>Status matricula</th>
+				</tr>
+				{% for matricula in matricula %}	
+					<tr>	
+						<td>
+							{{matricula.matricula}}<br>
+						</td>
+						<td>
+							{{matricula.aluno}}<br>
+						</td>
+						<td>
+							{{matricula.turma}}<br>
+						</td>
+						<td>
+							{{matricula.turno}}
+						</td>
+						<td>
+							{{matricula.status}}
+						</td>
+					</tr>	
+				{% endfor %}
+			</table>
+		{%else%}
+			Não possui matricula
+		{%endif%}
+	</div>		
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'SistemaEscolar/base.html' %}
+
+{% block content %}
+	<div class="shadow-lg p-3 mb-5 bg-body rounded">
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Matricula</th>		 	
+					<th scope="col">Aluno</th>
+					<th scope="col">Turma</th>
+					<th scope="col">Turno</th>
+					<th scope="col">Status</th>
+				</tr>
+			</thead>	
+			<h3>Lista de matriculas</h3>
+			<tbody>
+				<th scope="row"></th>
+					{% for matricula in matricula %}
+						<tr>
+
+							<td>
+								{{matricula.matricula}}<br>
+								
+							</td>
+							<td>
+								{{matricula.aluno}}<br>
+							</td>
+							<td>
+								{{matricula.turma}}<br>
+							</td>
+							<td>
+								{{matricula.turno}}
+							</td>
+							
+							<td> 
+								<a class="btn btn-info"href="{% url 'editar_matricula' id=matricula.id %}">{{matricula.status}}</a>
+						</td>
+						</tr>
+					{% endfor %}
+			</tbody>
+		</table>
+	</div>			
+
+	
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'SistemaEscolar/base.html' %}
+{% block content %}
+
+  <div class="row">
+    <div class="col-4"> 
+    </div>
+    <div class="col-5">  
+      <div class="shadow-lg p-3 mb-5 bg-body rounded">
+        <form action="{% url 'autenticar_usuario' %}" method="post">
+        {% csrf_token %}
+            <div class="mb-3">
+              <label form="exampleInputEmail" class="form-label">Username</label>
+              <input name="username" type="text" class="form-control" id="exampleInputEmail">
+            </div>
+            <div class="mb-3">
+              <label form="exampleInputPasswordl" class="form-label">Password</label>
+              <input name="password" type="Password" class="form-control" id="exampleInputPasswordl" >
+            </div>
+           <button type="submit" class="btn btn-primary">Login</button> 
+        </form>
+      </div>  
+    </div>
+    <div class="col-3">
+        
+    </div>
+  </div>  
+{% endblock %}   
