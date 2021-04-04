@@ -1,16 +1,103 @@
 {% extends 'SistemaEscolar/base.html' %}  
-{% block content %}  
-	<div class="shadow-lg p-3 mb-5 bg-body rounded">
+{% block content %} 
+	<form method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		<table class="table">
+			<div class="shadow-lg p-3 mb-5 bg-body rounded">
+			    <form>
+			      	<div class="row"> 
+				        <div class="col-4">
+
+					        <label for="inputName">Nome</label>
+					          {{ matriculaform.aluno }}
+					    </div>      
+					    <div class="col-4">
+					        <label for="inputTurma">Turma</label>
+					          	{{ matriculaform.turma }}
+					    </div>
+					    <div class="col-4">      	
+
+					        <label for="matriculaform.turno">Turno</label>
+					        	 {{ matriculaform.turno }}
+					    </div>    	 
+					</div>        	 
+					<div class="row">
+						<div class="col-4"> 
+					        <label for="inputMatricula">matricula</label>
+					        	 {{ matriculaform.matricula }}
+					    </div>
+					    <div class="col-4">   	 
+
+					        <label for="inputDeta">Data</label>
+					        	 {{ matriculaform.data }}
+					    </div>
+					    <div class="col-4">    	 
+
+					        <label for="inputStatus">Status</label>
+					        	 {{ matriculaform.status }}
+					    </div>
+					</div>
+					<div class="row">
+						<div class="col-4">
+							
+						</div>        	 	 	 	  	
+						<div class="col-4">
+							 <label for="inputObservacao">Observação</label>
+					        	 {{ matriculaform.observacao }}	 
+						</div>
+						<div class="col-4">
+							
+				        </div>
+				        <button class="submit">salvar</button>
+				    </div>    
+				</form>	
+			</div>	
+		</table>	        
 
 
-		<form method="post" enctype="multipart/form-data">
-			{% csrf_token %}
-		
-			{{matriculaform.as_p}}
-			
 
-			<button class="submit">salvar</button>
-		</form>
-	</div>
+
+
+ <!--
+	
+		<table style="width:100%">
+				<tr>
+								
+					<th>Aluno</th>
+					<th>Turma</th>
+					<th>Turno</th>
+					<th>Matricula</th>
+					<th>Data</th>
+					<th>Status Da</th>
+					<th>Observação</th>
+				</tr>
+				{% for matriculaform in matricula %}
+					<tr>
+						<td>
+							{{matricula.matricula}}<br>
+						</td>
+						<td>
+							{{matricula.aluno}}<br>
+						</td>
+						<td>
+							{{matricula.turma}}<br>
+						</td>
+						<td>
+							{{matricula.turno}}
+						</td>
+						<td>
+							{{matricula.status}}
+						</td>
+						<td>
+							{{matricula.observacao}}
+						</td>
+					</tr>
+				{% endfor %}	
+				-->
+
+				
+			</form>
+		</div>
+	</div>	
 {% endblock %}
 

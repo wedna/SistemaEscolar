@@ -2,17 +2,39 @@
 {% block content %}  
 
 
-	<form method="post" enctype="multipart/form-data">
+	<style>
+	h1 {text-align: center;}
+	p {text-align: center;}
+	div {text-align: center;}
+	</style>
+
+ 
+	<form method="post" class="form-inline"  enctype="multipart/form-data">
 		{% csrf_token %}
-	
-		{{form_usuario.username}}
-		{{form_usuario.username.errors}}
-		{{form_usuario.password1}}
-		{{form_usuario.password1.errors}}
-		{{form_usuario.password2}}
-		{{form_usuario.password2.errors}}
 
-		<button class="submit">salvar</button>
+			<div class="row">
+				<div class="col-4">			
+				</div>
+				<div class="col-4 shadow-lg p-3 mb-5 bg-body rounded">
+					<label for="inputName">Usuario</label><br>
+						{{form_usuario.username}}<br>
+						{{form_usuario.username.errors}}<br>
+						
+						<div class="mb-3"> 	
+							<label for="inputPassword">Senha</label><br>
+							 	{{form_usuario.password1}}<br>
+							 	{{form_usuario.password1.errors}}<br>
+						</div>
+						<div class="mb-3"> 	 	
+							<label for="inputPassword">Confirma senha</label><br>
+								{{form_usuario.password2}} <br>
+								{{form_usuario.password2.errors}}<br>
+
+							<button type="submit" class="btn btn-primary">salvar</button>
+						</div>	
+							
+				</div>
+				<div class="col-4"></div>		
+			</div>
 	</form>
-
 {% endblock %}

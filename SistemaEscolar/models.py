@@ -20,6 +20,7 @@ class Aluno(Pessoa):
 class Funcionario(Pessoa):
 
 	salario = models.FloatField(max_length=20, null=True, blank=True)
+	data_contratacao = models.DateField(null=True, blank=True)
 		
 
 

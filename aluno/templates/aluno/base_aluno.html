@@ -43,9 +43,10 @@
   <header>
     <!-- Fixed navbar -->
 
-    <nav class="navbar navbar-expand-lg" style="background-image: linear-gradient(to right,DarkCyan, DarkSlateGray);">
+    <nav class="navbar navbar-expand-lg" style="background-color:rgb(255,159,128);">
       <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'home' %}"> <p class="text-dark">Escola de Ciencia e Tecnologia Supra TEC</p>
+        <a class="navbar-brand" href="{% url 'home' %}"><b class="text-dark"><h4>Escola de Ciencia e Tecnologia Supra TEC</h4></b></a>
+        
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -53,10 +54,10 @@
           <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
             <ul class="navbar-nav">
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><p class="text-dark">Aluno</p></a>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><span class="text-dark">Aluno</span> </a>
                 
                   <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                    <li><a class="dropdown-item" href="{% url 'cadastro_aluno' %}">Realizar cadastro</a></li>
+                    <li><a class="dropdown-item" href="{% url 'cadastro_aluno' %}">Cadastro</a></li>
                     <li><a class="dropdown-item" href="{% url 'solicitar_matricula' %}">Solicitar matricular</a></li>
                     <li><a class="dropdown-item" href="{% url 'matricula' %}">Listar matricula</a></li>
                     <li><a class="dropdown-item" href="{% url 'observacao' %}">alteracao</a></li>
@@ -68,15 +69,17 @@
 
             <ul class="nav justify-content-end">
 
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'novo_usuario'%}"><p class="text-dark">Cadastre-se</p></a>
-              </li>
-
+             
               <li class="nav-item">
                 {% if user.is_authenticated %}
+
                   <a class= "nav-link active" aria-current="page" href="{% url 'logout' %}"><p class="text-dark">Sair</p></a>
                 {% else %}
                   <a class= "nav-link active" aria-current="page" href="{% url 'login_usuario' %}"><p class="text-dark">Login</p></a>
+                   <li class="nav-item">
+                    <a class="nav-link" href="{% url 'novo_usuario'%}"><p class="text-dark">Cadastre-se</p></a>
+                  </li>
+                  
                 {% endif %}
               </li>
             </ul>
@@ -93,11 +96,11 @@
               </div>
             </main>
 
-          <footer class="footer mt-auto py-3 bg-light">
-            <div class="container">
-              <p>© Copyright 2021 GroupDev S.A. - Todos os direitos da Escola de Ciencia e Tecnologia Supra TEC</p>
-            </div>
-          </footer>
+            <footer class="fixed-bottom" style="background-color:rgb(255,159,128);"> <!--Roda pé-->
+              <div class="container">
+                <p>© Copyright 2021 GroupDev S.A. - Todos os direitos reservados</p>
+              </div>
+            </footer>
 
               <script src="{% static '/js/bootstrap.bundle.min.js' %}"></script>
       </div>

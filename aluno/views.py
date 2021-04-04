@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required #funçao para segurança do sistema
 from SistemaEscolar.models import Aluno, Endereco, Turma, Turno, Matricula
-from SistemaEscolar.forms import AlunoForm, EnderecoForm, ObservacaoForm
-from aluno.forms import MatriculaForm
+from SistemaEscolar.forms import AlunoForm, EnderecoForm
+from aluno.forms import MatriculaForm, ObservacaoForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import Group #seleciona os grupo de acesso

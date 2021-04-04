@@ -2,7 +2,7 @@
 
 {% block content %}
 	<div class="shadow-lg p-3 mb-5 bg-body rounded">
-
+		<h3>Lista de matriculas</h3>
 		<table class="table">
 			<thead>
 				<tr>
@@ -11,12 +11,12 @@
 					<th scope="col">Turma</th>
 					<th scope="col">Turno</th>
 					<th scope="col">Status</th>
+					<th scope="col">Arquivos</th>
 				</tr>
 			</thead>	
-			<h3>Lista de matriculas</h3>
+			
 			<tbody>
-				<th scope="row"></th>
-					{% for matricula in matricula %}
+				{% for matricula in matricula %}
 						<tr>
 
 							<td>
@@ -35,7 +35,12 @@
 							
 							<td> 
 								<a class="btn btn-info"href="{% url 'editar_matricula' id=matricula.id %}">{{matricula.status}}</a>
-						</td>
+							</td>
+							<td> 
+								{% if matricula.anexos %}
+									<a href="{{matricula.anexos.url}}">Anexos</a>
+								{% endif %}
+							</td>
 						</tr>
 					{% endfor %}
 			</tbody>

@@ -1,18 +1,44 @@
 {% extends 'aluno/base_aluno.html' %}  
 {% block content %}  
+	<style>
+	h1 {text-align: center;}
+	p {text-align: center;}
+	div {text-align: center;}
+	</style>
 
-
+ 
 	<form method="post" enctype="multipart/form-data">
 		{% csrf_token %}
-	
-		{{form_usuario.username}}
+		<table align="center">
+			<div class="row">
+				<div class="col-4">
+					
+				</div>
+				<div class="col-5">
+					<div class="shadow-lg p-3 mb-5 bg-body rounded">
+						 <div class="mb-3">
+							<label for="inputName">Usuario</label> <br>
+							 	{{form_usuario.username}}
+						</div>
+						<div class="mb-3"> 	
+							<label for="inputPassword">Senha</label> <br>
+							 	{{form_usuario.password1}}
+						</div>
+						<div class="mb-3"> 	 	
+							<label for="inputPassword">Confirma senha</label> <br>
+								{{form_usuario.password2}} 
+							<button class="submit">salvar</button>
+						</div>	
+					</div>			
+				</div>
+				<div class="col-3"></div>		
+			</div>
+		</table>
+		
 		{{form_usuario.username.errors}}
-		{{form_usuario.password1}}
+		
 		{{form_usuario.password1.errors}}
-		{{form_usuario.password2}}
+		
 		{{form_usuario.password2.errors}}
-
-		<button class="submit">salvar</button>
 	</form>
-
 {% endblock %}

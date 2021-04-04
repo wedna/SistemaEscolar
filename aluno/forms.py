@@ -1,5 +1,5 @@
 from django import forms
-from SistemaEscolar.models import Matricula
+from SistemaEscolar.models import Matricula, Observacao
 
 
 class MatriculaForm(forms.ModelForm):
@@ -16,3 +16,12 @@ class MatriculaForm(forms.ModelForm):
 			'observacao': forms.TextInput(attrs={'class':'form-control'}),
 			
 	}
+
+class ObservacaoForm(forms.ModelForm):
+	class Meta:
+		model = Observacao
+		fields= ('observacao',)
+
+		widgets={
+			'observacao': forms.TextInput(attrs={'class':'form-control'}),
+		}

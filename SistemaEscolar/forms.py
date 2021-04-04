@@ -14,10 +14,10 @@ class AlunoForm(forms.ModelForm):
 		'contato':forms.TextInput(attrs={'class':'form-control'}),
 		}
 
-class FuncionarioForm(forms.ModelForm):
+class FuncionarioForm(forms.ModelForm): 
 	class Meta:  
 		model = Funcionario
-		fields = ('nome', 'email', 'cpf', 'contato', 'usuario' )
+		fields = ('nome', 'email', 'cpf', 'contato', 'usuario', 'salario', 'data_contratacao' )
 
 		widgets = {
 			'nome':forms.TextInput(attrs={'class':'form-control'}),
@@ -26,6 +26,7 @@ class FuncionarioForm(forms.ModelForm):
 			'contato':forms.TextInput(attrs={'class':'form-control'}),
 			'usuario':forms.Select(attrs={'class':'form-control'}),
 			'salario':forms.TextInput(attrs={'class':'form-control'}),
+			'data_contratacao':forms.DateInput(attrs={'class':'form-control', 'type':'date'}),
 		}		
 
  

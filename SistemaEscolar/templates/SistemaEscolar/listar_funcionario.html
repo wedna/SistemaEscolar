@@ -1,13 +1,54 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Sistema Escolar</title>
-</head>
-<body>
-	<h3>Lista de funcionarios</h3>
-	{% for funcionario in funcionarios %}
-		{{funcionario.nome}}<br>
-	{% endfor %}	
+{% extends 'SistemaEscolar/base.html' %}
 
-</body>
-</html>
+{% block content %}
+	<div class="shadow-lg p-3 mb-5 bg-body rounded">
+
+
+		
+
+		<table class="table">
+			<tr> 
+				<th>Nome</th>			
+				<th>Salario</th>
+				
+				
+			</tr> 
+	  		{% for funcionarios in funcionarios %}
+				<tr>
+					
+						
+					<td>
+								
+								{{funcionarios.nome}}
+							
+							
+
+					</td>	
+					<td>
+								
+								{{funcionarios.salario}}
+					</td>	
+						
+						<!--solicitar alteração de dados pessoais e de endereço-->
+					{% if user.is_authenticated %}
+						<td> 
+							<a class="btn btn-info"href="{% url 'editar_funcionario' id=funcionarios.id %}">Alterar Dados</a>
+						</td>
+
+						<td>
+							<a class="btn btn-info"href="{% url 'editar_endereco' id=funcionarios.id %}">Alterar Endereco</a>
+						</td>
+					
+						<!--deletar-->
+						<td>
+							
+							<a class="btn btn-danger" href="">Deletar</a>
+						</td>
+					{% endif %}
+						
+				</tr>
+				
+			{% endfor %}
+		</table>
+	</div>				
+{% endblock %}				

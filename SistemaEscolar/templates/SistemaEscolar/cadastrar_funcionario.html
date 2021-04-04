@@ -1,12 +1,46 @@
 {% extends 'SistemaEscolar/base.html' %}  
 {% block content %} 
-
-
 	<form method="post" enctype="multipart/form-data">
 		{% csrf_token %}
-		{{funcionarioform.as_p}}
-		
-		<button class="submit">salvar</button>
-	</form>
+	
+		<div class="shadow-lg p-3 mb-5 bg-body rounded">
+		  	<div class="row">
+
+		  		<div class="col-4">		    
+			      <label for="inputName">Nome</label>
+			      {{funcionarioform.nome}}
+			    </div>
+			    <div class=" col-4">
+			      <label for="inputcpf">Cpf</label>
+			      {{funcionarioform.cpf}}
+			    </div>
+			    <div class="col-4">
+			    <label for="inputEmail">Email</label>
+			    {{funcionarioform.email}}
+			  </div>
+			
+		  	</div>
+		  	<div class="row">
+			  
+		    	<div class="col-4"> 
+			      <label for="inputContato">Contado</label>
+			     {{funcionarioform.contato}}
+		    	</div>
+		    	<div class="col-4">
+		    		<label for="inputdata_contratacao">Data do contrato</label>
+		    		{{ funcionarioform.data_contratacao}}
+		    	</div>
+		    	<div class="col-4">
+		    		<label for="inputSalario">Salário</label>
+		    		{{ funcionarioform.salario }}
+		    	</div>
+		    </div>	
+		    	<div class="col-4">
+			    	
+			    	<button type="submit" class="btn btn-primary">Salvar</button>
+			    </div>  
+			  
+		</div>    
+	
 
 {% endblock %}

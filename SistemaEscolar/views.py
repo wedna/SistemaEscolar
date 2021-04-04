@@ -110,6 +110,21 @@ def editar_aluno(request, id):
 		alunoform = AlunoForm(instance=aluno)
 	return render(request,'SistemaEscolar/cadastrar_aluno.html', {'alunoform': alunoform})
 
+login_required(login_url='page_login')
+def editar_funcionario(request, id):
+	funcionario= get_object_or_404(Funcionario,pk=id)
+	if request.method == 'POST': 
+		funcionarioform=FuncionarioForm(request.POST, request.FILES, instance=funcionario)
+		if funcionarioform.is_valid():
+			funcionario=funcionarioform.save(commit=False)
+			funcionarioform.save() 
+			return redirect(listar_funcionario)
+	else:
+		funcionarioform = FuncionarioForm(instance=funcionario)
+	return render(request,'SistemaEscolar/cadastrar_funcionario.html', {'funcionarioform': funcionarioform})
+
+
+
 def editar_matricula(request, id):
 	matricula=get_object_or_404(Matricula, pk=id)
 	if request.method == 'POST':
@@ -146,7 +161,7 @@ def editar_endereco(request,id):
 
 def editar_observacao(request,id):
 	#mudar as informações de pendente para concluído.
-	observacao=get_object_or_404(Observacao, aluno_id=id)
+	observacao=get_object_or_404(Observacao, pk=id)
 	if request.method=='POST':
 		observacaoform=ObservacaoForm(request.POST, request.FILES, instance=observacao)
 		if observacaoform.is_valid():
@@ -274,7 +289,7 @@ def cadastrar_funcionario(request):
 			enderecoform.save()
 			
 			
-			return redirect(detalhes_funcionario, id=funcionario.id)
+			return redirect(cadastrar_endereco, id=funcionario.id)
 	else:
 		enderecoform = EnderecoForm()
 		funcionarioform = FuncionarioForm()

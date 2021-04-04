@@ -11,6 +11,7 @@
 					<th>Turma</th>
 					<th>Turno</th>
 					<th>Status matricula</th>
+					<th>Observação</th>
 				</tr>
 				{% for matricula in matricula %}	
 					<tr>	
@@ -28,6 +29,9 @@
 						</td>
 						<td>
 							{{matricula.status}}
+						</td>
+						<td>
+							{{matricula.observacao}}
 						</td>
 					</tr>	
 				{% endfor %}
