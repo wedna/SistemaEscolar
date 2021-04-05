@@ -19,14 +19,12 @@
 						
 					<td>
 								
-								{{funcionarios.nome}}
+						{{funcionarios.nome}}
 							
-							
-
 					</td>	
 					<td>
 								
-								{{funcionarios.salario}}
+						{{funcionarios.salario}}
 					</td>	
 						
 						<!--solicitar alteração de dados pessoais e de endereço-->
@@ -41,8 +39,7 @@
 					
 						<!--deletar-->
 						<td>
-							
-							<a class="btn btn-danger" href="">Deletar</a>
+							<a class="btn btn-danger" href="{% url 'deletar_funcionario' id=funcionarios.id %}">Deletar</a>
 						</td>
 					{% endif %}
 						

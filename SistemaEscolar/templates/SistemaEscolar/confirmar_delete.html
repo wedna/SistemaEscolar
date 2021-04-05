@@ -1,9 +1,27 @@
-Deseja excluir {{aluno.nome}}?
+{% extends 'SistemaEscolar/base.html' %}
 
-<form method="POST">
+{% block content %}
+	<form method="POST"> 
 	{% csrf_token %}
-	<button type="submit">
-		deletar
-	</button>
-	
-</form>
+		<div class="row">
+			<div class="col-4">
+				
+			</div>
+			<div class="col-4">
+				<div class="shadow-lg p-3 mb-5 bg-body rounded">
+			
+					<h5> Deseja excluir {{objeto.nome}}?</h5>
+
+
+					<button type="submit">
+						Deletar
+					</button>
+				</div>
+
+			</div>
+			<div class="col-4">
+				
+			</div>
+		</div>	
+	</form>
+{% endblock %}	

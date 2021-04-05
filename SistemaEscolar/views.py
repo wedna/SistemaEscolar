@@ -29,9 +29,16 @@ def deletar_aluno(request, id): #função destinada apenas aos funcionarios.
 		aluno.delete() 
 		return redirect(listar_alunos)
 	else:
-		return render(request, 'SistemaEscolar/confirmar_delete.html', {'aluno':aluno})
+		return render(request, 'SistemaEscolar/confirmar_delete.html', {'objeto':aluno})
 
-	
+
+def deletar_funcionario(request,id):
+	funcionario= get_object_or_404(Funcionario,pk=id)
+	if request.method=='POST':
+		funcionario.delete()
+		return redirect(listar_funcionario)
+	else:
+		return render(request, 'SistemaEscolar/confirmar_delete.html', {'objeto': funcionario})		
 
 
 def logout_usuario(request): #sair do sistema
@@ -146,7 +153,7 @@ def editar_endereco(request,id):
 	if request.method=='POST':
 		enderecoform=EnderecoForm(request.POST, request.FILES,instance=endereco)
 		if enderecoform.is_valid():
-			endereco=endercoform.save(commit=false)
+			endereco=enderecoform.save(commit=False)
 			enderecoform.save()
 			aluno.endereco_id=endereco.id
 			return redirect(detalhes_endereco, id=endreco.id)

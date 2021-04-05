@@ -25,6 +25,8 @@ urlpatterns = [
     path('page_login', views.page_login, name='page_login'),
     path('autenticar_usuario', views.autenticar_usuario, name='autenticar_usuario'),
     path('logout_usuario', views.logout_usuario, name='logout_usuario'),
+    #
+    path('deletar/<int:id>/', views.deletar_funcionario, name='deletar_funcionario'),
 
     path('deletar_aluno/<int:id>/', views.deletar_aluno, name='deletar_aluno'),
     path('cadastrar_funcionario/new/', views.cadastrar_funcionario, name='cadastrar_funcionario'),

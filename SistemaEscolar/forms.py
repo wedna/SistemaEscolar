@@ -14,7 +14,7 @@ class AlunoForm(forms.ModelForm):
 		'contato':forms.TextInput(attrs={'class':'form-control'}),
 		}
 
-class FuncionarioForm(forms.ModelForm): 
+class FuncionarioForm(forms.ModelForm):  
 	class Meta:  
 		model = Funcionario
 		fields = ('nome', 'email', 'cpf', 'contato', 'usuario', 'salario', 'data_contratacao' )
